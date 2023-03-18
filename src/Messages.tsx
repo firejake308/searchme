@@ -47,7 +47,7 @@ export default function Messages() {
             <div className="list-group list-group-flush">
                 {messages.length === 0 && 'Loading messages...'}
                 {messages.map((msg) => (<div className="list-group-item" key={msg.id}>
-                    <span style={{fontStyle: 'italic'}}>{new Date(msg.created_at).toLocaleString('en-US')}</span>{' '}
+                    <span style={{fontStyle: 'italic'}}>{new Date(msg.created_at*1000).toLocaleString('en-US')}</span>{' '}
                     <span style={{fontWeight: 'bold'}}>{msg.name}</span>:{' '}
                     <span>{msg.text}</span>
                     <span>{msg.attachments.map((att: any) => att.type === 'image' ? <img src={att.url} alt="idk" style={{maxWidth: 'calc(100vw - 64px)'}} key={att.url} /> : null)}</span>
